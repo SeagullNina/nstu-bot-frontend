@@ -1,0 +1,25 @@
+.ChatBot {
+  width:650px;
+}
+
+.page {
+  height: 100vh;
+  background-color: #F1F3F4;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.image {
+  width: 254px;
+  height: 82px;
+}
+
+.block {
+  width: 626px;
+  height: 612px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-right: 30px;
+}
