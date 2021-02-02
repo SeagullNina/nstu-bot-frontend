@@ -22,7 +22,7 @@ class DBPedia extends Component {
     const self = this;
     const { request } = self.props.steps;
     axios
-      .post("/messages", {
+      .post("https://chatbot-backend-nstu.herokuapp.com/api/messages", {
         message: request.message
       })
       .then(function(response) {
