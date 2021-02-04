@@ -4,7 +4,7 @@ import ChatBot from "./ChatBot";
 import Loading from './steps_components/common/Loading'
 import axios from "axios";
 
-class DBPedia extends Component {
+class Answer extends Component {
   constructor(props) {
     super(props);
 
@@ -73,7 +73,7 @@ class DBPedia extends Component {
   }
 }
 
-DBPedia.defaultProps = {
+Answer.defaultProps = {
   steps: undefined,
   triggerNextStep: undefined
 };
@@ -87,30 +87,31 @@ const App = () => (
       Здесь вы можете узнать всю необходимую информацию о будущей специализации, факультете, узнать о правилах приема,
       плане набора и минимальных баллах. 
       Также наш виртуальный консультант поможет вам с выбором направления, а также подготовительных курсов по любому 
-      интересующему предмету.
+      интересующему предмету.<br/><br/>Приятного общения!
       </div>
     </div>
   <ChatBot
     botName="Чат-бот НГТУ"
     botAvatar="nstu.png"
+    userAvatar="student.png"
     headerTitle="Чат-бот НГТУ"
     placeholder="Введите текст сообщения..."
     className={ChatBot}
     steps={[
       {
-        id: "1",
+        id: "First",
         message: "Привет! Я чат-бот НГТУ. Готов ответить на Ваши вопросы!",
         trigger: "request"
       },
       {
         id: "request",
         user: true,
-        trigger: "3"
+        trigger: "Answer"
       },
       {
-        id: "3",
+        id: "Answer",
         asMessage: true,
-        component: <DBPedia />,
+        component: <Answer />,
         waitAction: true,
         trigger: "request"
       }
