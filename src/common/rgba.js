@@ -1,5 +1,4 @@
 const hexToRgb = hex => {
-  // http://stackoverflow.com/a/5624139
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
   hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
 
