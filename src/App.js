@@ -21,7 +21,7 @@ class Answer extends Component {
   request = () => {
     const self = this;
     const { request } = self.props.steps;
-    const url = 'http://' + window.location.hostname + ':5000/api/messages'
+    const url = window.location.protocol + '//' + window.location.hostname + ':5000/api/messages'
     console.log('base url = ' + url)
     axios
       .post(url, {
