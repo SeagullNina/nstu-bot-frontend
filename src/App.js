@@ -4,6 +4,20 @@ import ChatBot from "./ChatBot";
 import Loading from './steps_components/common/Loading'
 import axios from "axios";
 
+function getUrl() {
+  const appMode = process.env.REACT_APP_MODE;
+
+  console.log('app mode = ' + appMode)
+
+  // для продакшена
+  if (appMode == 'prod' || appMode == 'production') {
+    return 'https://chatbot-backend-nstu.herokuapp.com/api/messages';
+  }
+
+  // для локальной разработки
+  return window.location.protocol + '//' + window.location.hostname + ':5000/api/messages';
+};
+
 class Answer extends Component {
   constructor(props) {
     super(props);
@@ -21,8 +35,10 @@ class Answer extends Component {
   request = () => {
     const self = this;
     const { request } = self.props.steps;
-    const url = window.location.protocol + '//' + window.location.hostname + ':5000/api/messages'
+
+    const url = getUrl()
     console.log('base url = ' + url)
+    
     axios
       .post(url, {
         message: request.message
